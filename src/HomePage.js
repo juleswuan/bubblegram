@@ -2,12 +2,10 @@ import React from "react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import {
   Container,
-  Card,
   Row,
   Col,
   CardText,
   CardTitle,
-  CardBody,
   Button
 } from "reactstrap";
 import UserImages from "./containers/UserImages";
@@ -42,8 +40,6 @@ const HomePage = props => {
           >
             <Row style={{ marginBottom: 10 }}>
               <Col xs="12" md="6" lg="2" className="d-block">
-                {/* <Card style={{ backgroundColor: "#E3E3E3" }}>
-                  <CardBody> */}
                     <CardTitle className="font-weight-bold" style={textStyle}>
                       {user.username}
                     </CardTitle>
@@ -60,8 +56,6 @@ const HomePage = props => {
                     <Button style={buttonStyle} className="w-100">
                       See More
                     </Button>
-                  {/* </CardBody>
-                </Card> */}
               </Col>
               <Col>
                 <UserImages userId={user.id}/>

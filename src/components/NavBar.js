@@ -5,8 +5,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
   NavLink,
+  NavItem,
   Input,
   Button,
   Form,
@@ -37,7 +37,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <Navbar color="dark" dark expand="md">
-        <Link to="/">
+        <NavbarBrand tag={Link} to="/">
           <img
             alt=""
             src="../rainbow128.png"
@@ -46,7 +46,7 @@ export default class NavBar extends React.Component {
             className="d-inline-block align-top"
           />{" "}
           Bubblegram
-        </Link>
+        </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
@@ -62,13 +62,19 @@ export default class NavBar extends React.Component {
               <Button style={buttonStyle}>Submit</Button>
             </Form>
             <NavItem>
-              <Link to="/users/1">Users</Link>
+              <NavLink tag={Link} to="/users/1">Users</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#">Sign In</NavLink>
+              <NavLink tag={Link} to={{ pathname: "/login", state: { isLogin: true } }}>
+                {" "}
+                Login{" "}
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#">Sign Up</NavLink>
+              <NavLink tag={Link} to={{ pathname: "/login", state: { isLogin: false } }}>
+                {" "}
+                Sign Up{" "}
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
