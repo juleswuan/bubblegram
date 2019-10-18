@@ -44,7 +44,6 @@ class UserProfile extends Component {
   };
 
   render() {
-    const { id, profileImage, username } = this.state.userInfo;
     return (
       <div>
         <h2>{`@${this.state.userInfo.username}`}</h2>
@@ -56,7 +55,7 @@ class UserProfile extends Component {
         />
         <div>
           {this.state.images.map((image, index) => (
-            <img key={index} src={image} width="300" height="200" alt="" />
+            <img key={index} src={image} width="300" height="200" alt="userImages" />
           ))}
         </div>
       </div>

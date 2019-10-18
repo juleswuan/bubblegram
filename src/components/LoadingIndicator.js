@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import LoadingGif from "../assets/Ripple.svg"
 
 const LoadingIndicator = () => {

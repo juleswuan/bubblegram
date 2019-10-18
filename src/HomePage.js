@@ -4,7 +4,6 @@ import {
   Container,
   Row,
   Col,
-  CardText,
   CardTitle,
   Button
 } from "reactstrap";
@@ -43,10 +42,6 @@ const HomePage = props => {
                     <CardTitle className="font-weight-bold" style={textStyle}>
                       {user.username}
                     </CardTitle>
-                    {/* <CardText style={textStyle}>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </CardText> */}
                     <img
                       src={user.profileImage}
                       alt="profileImage"

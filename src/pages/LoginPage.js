@@ -4,30 +4,25 @@ import SignupForm from "../components/SignupForm";
 
 class LoginPage extends Component {
   state = {
-    isLogin: true
+    showLogin: true
   };
-
-  // componentDidMount() {
-  //   console.log(this.props);
-  //   this.setState({
-  //     isLogin: this.props.location.state.isLogin
-  //   });
-  // }
 
   toggleLogin = () => {
     this.setState({
-      isLogin: !this.state.isLogin
+      showLogin: !this.state.showLogin
     })
   };
 
   render() {
+    // console.log("LoginPage props", this.props);
+
     return (
       <>
-        {this.state.isLogin ? (
-          <LoginForm isLogin={this.toggleLogin} />
+        {this.state.showLogin ? (
+          <LoginForm toggleLogin={this.toggleLogin} history={this.props.history} />
         ) : (
           <SignupForm
-            isLogin={this.toggleLogin}
+            toggleLogin={this.toggleLogin}
             signUpNewUser={this.props.signUpNewUser}
           />
         )}
@@ -37,3 +32,5 @@ class LoginPage extends Component {
 }
 
 export default LoginPage;
+
+

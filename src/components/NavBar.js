@@ -51,29 +51,44 @@ export default class NavBar extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <Form inline>
-              <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+              {/* <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                 <Input
                   type="password"
                   name="password"
                   id="examplePassword"
                   placeholder="Type username"
                 />
-              </FormGroup>
-              <Button style={buttonStyle}>Submit</Button>
+              </FormGroup> */}
+              {/* <Button style={buttonStyle}>Submit</Button> */}
             </Form>
             <NavItem>
-              <NavLink tag={Link} to="/users/1">Users</NavLink>
+              <NavLink tag={Link} to="/users/1">
+                Users
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to={{ pathname: "/login", state: { isLogin: true } }}>
+              <NavLink tag={Link} to="/profile">
+                My Profile
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                tag={Link}
+                to={{ pathname: "/login", state: { isLogin: true } }}
+              >
                 {" "}
                 Login{" "}
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to={{ pathname: "/login", state: { isLogin: false } }}>
+              {/* <NavLink tag={Link} to={{ pathname: "/login", state: { isLogin: false } }}>
                 {" "}
                 Sign Up{" "}
+              </NavLink> */}
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/upload">
+                Upload
               </NavLink>
             </NavItem>
           </Nav>
