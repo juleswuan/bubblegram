@@ -20,6 +20,7 @@ class UserProfile extends Component {
         `https://insta.nextacademy.com/api/v1/images?userId=${this.props.match.params.userId}`
       )
       .then(result => {
+        console.log(result)
         this.setState({
           images: result.data
         });

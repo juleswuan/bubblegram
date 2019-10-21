@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import LoadingIndicator from "./LoadingIndicator"
 
 // general styling
 const Container = styled.section`
@@ -19,14 +20,15 @@ const Img = styled.img`
 const PreviewImage = props => {
   return (
     <>
-      <Container placeholder="Preview image herer">
-        {props.previewImage ? (
-          <Img src={props.previewImage} width="50%" height="50%" />
-        ) : (
-          <h3 className="text-center">
+      <Container placeholder="Preview image here">
+    {props.isLoading 
+      ? <LoadingIndicator /> 
+      : props.previewImage 
+        ? ( <Img src={props.previewImage} width="50%" height="50%" /> ) 
+        : ( <h3 className="text-center">
             {props.message ? props.message : "Live Preview"}
-          </h3>
-        )}
+          </h3> )
+    }
       </Container>
     </>
   );

@@ -12,6 +12,10 @@ class UploadForm extends Component {
     this.props.handleFile(file);
   };
 
+  handleLoading = () => {
+
+  }
+
   render() {
     return (
       <Form onSubmit={e => this.props.handleSubmit(e)}>
@@ -19,7 +23,7 @@ class UploadForm extends Component {
           <Input type="file" onChange={e => this.handleChange(e)} />
           <FormText>Make sure your image is in a supported format</FormText>
         </FormGroup>
-        <Button>Upload</Button>
+        <Button onClick={this.handleLoading()}>Upload</Button>
       </Form>
     );
   }

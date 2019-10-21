@@ -11,7 +11,7 @@ import {
   withRouter
 } from "react-router-dom";
 
-import HomePage from "./HomePage";
+import HomePage from "./pages/HomePage";
 import UserProfile from "./pages/UserProfile";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LoginPage";
@@ -41,7 +41,7 @@ class App extends React.Component {
       .then(result => {
         this.setState({
           isLoading: false,
-          users: result.data.slice(0, 5)
+          users: result.data
           // firstLoad: false
         });
       })
@@ -88,6 +88,7 @@ class App extends React.Component {
                 <HomePage
                   users={this.state.users}
                   isLoading={this.state.isLoading}
+                  handleClick={this.handleClick}
                 />
               );
             }}

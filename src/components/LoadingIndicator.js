@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingGif from "../assets/Ripple.svg"
+import LoadingGif from "../assets/Ellipsis-1.2s-200px.svg"
 
 const LoadingIndicator = () => {
     return ( 

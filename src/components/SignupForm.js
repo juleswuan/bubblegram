@@ -24,8 +24,8 @@ class SignupForm extends Component {
     username: "",
     email: "",
     password: "",
-    confirmPassword: ""
-    // usernameValid: undefined
+    confirmPassword: "",
+    disableSignUp: true
   };
 
   // functions code
@@ -46,6 +46,8 @@ class SignupForm extends Component {
       [e.target.name]: e.target.value,
       delay
     });
+    // this.checkEmail();
+    // this.checkPassword();
   };
 
   handleUsernameCheck = e => {
@@ -70,10 +72,43 @@ class SignupForm extends Component {
         .catch(error => {
           console.log(error.response);
         });
-      // } else {
-      //   this.setState({
-      //     usernameValid: false
-      //   });
+    }
+  };
+
+  // checkEmail = (e) => {
+  //   // don't remember from where i copied this code, but this works.
+  //   let check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   if (check.test(email)) {
+  //     // this is a valid email address
+  //     // call setState({email: email}) to update the email
+  //     // or update the data in redux store.
+  //     this.setState({
+  //       email: e.target.value
+  //     })
+  //   } else {
+  //     // invalid email, maybe show an error to the user.
+  //     alert("Please enter a valid email address")
+  //   }
+  // };
+
+  // checkPassword = () => {
+  //   const { confirmPassword, password} = this.state
+  //   if(confirmPassword != password) {
+  //       alert("Please make sure your password matches")
+  //     }
+  //   };
+
+  checkDisabled = () => {
+    const { username, email, password, confirmPassword } = this.state;
+    if (
+      username !== "" &&
+      email !== "" &&
+      password !== "" &&
+      confirmPassword !== ""
+    ) {
+      this.setState({
+        disableSignUp: false
+      });
     }
   };
 
@@ -103,8 +138,10 @@ class SignupForm extends Component {
                 onChange={e => {
                   if (this.state.delay) {
                     clearTimeout(this.state.delay);
+
                   }
                   this.handleInput(e);
+
                 }}
                 {...(username.length >= 6
                   ? usernameValid
@@ -134,9 +171,6 @@ class SignupForm extends Component {
                 name="email"
                 placeholder="Email address"
                 onChange={e => {
-                  if (this.state.delay) {
-                    clearTimeout(this.state.delay);
-                  }
                   this.handleInput(e);
                 }}
               />
@@ -162,7 +196,11 @@ class SignupForm extends Component {
             <FormFeedback></FormFeedback>
             <Button style={buttonStyle}>Sign Up</Button>
           </Form>
-          <button className="btn btn-link" onClick={e => this.props.toggleLogin(e)}>
+          <button
+            className="btn btn-link"
+            disabled={this.disableSignUp}
+            onClick={(e) => {this.props.toggleLogin(e); this.checkDisabled(e)}}
+          >
             Already a user? Log in here
           </button>
         </div>

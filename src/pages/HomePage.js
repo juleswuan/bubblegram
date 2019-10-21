@@ -1,13 +1,7 @@
 import React from "react";
-import LoadingIndicator from "./components/LoadingIndicator";
-import {
-  Container,
-  Row,
-  Col,
-  CardTitle,
-  Button
-} from "reactstrap";
-import UserImages from "./containers/UserImages";
+import LoadingIndicator from "../components/LoadingIndicator";
+import { Container, Row, Col, CardTitle, Button } from "reactstrap";
+import UserImages from "../containers/UserImages";
 
 const buttonStyle = {
   backgroundColor: "#f95959",
@@ -39,21 +33,23 @@ const HomePage = props => {
           >
             <Row style={{ marginBottom: 10 }}>
               <Col xs="12" md="6" lg="2" className="d-block">
-                    <CardTitle className="font-weight-bold" style={textStyle}>
-                      {user.username}
-                    </CardTitle>
-                    <img
-                      src={user.profileImage}
-                      alt="profileImage"
-                      className="rounded-circle"
-                      style={imgStyle}
-                    />
-                    <Button style={buttonStyle} className="w-100">
-                      See More
-                    </Button>
+                <CardTitle className="font-weight-bold" style={textStyle}>
+                  {user.username}
+                </CardTitle>
+                <img
+                  src={user.profileImage}
+                  alt="profileImage"
+                  className="rounded-circle"
+                  style={imgStyle}
+                />{" "}
+                <a href={`/users/${user.id}`}>
+                  <Button style={buttonStyle} className="w-100">
+                    See More
+                  </Button>
+                </a>
               </Col>
               <Col>
-                <UserImages userId={user.id}/>
+                <UserImages userId={user.id} />
               </Col>
             </Row>
           </Container>

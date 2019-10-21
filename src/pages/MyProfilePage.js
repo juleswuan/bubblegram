@@ -51,7 +51,6 @@ class MyProfilePage extends Component {
   render() {
     return (
       <>
-        <h1>My Profile Page</h1>
         <h2>{`@${this.state.username}`}</h2>
         <img
           src={this.state.profileImage}

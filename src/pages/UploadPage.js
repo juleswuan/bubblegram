@@ -7,8 +7,9 @@ import PreviewImage from "../components/PreviewImage";
 class UploadPage extends Component {
   state = {
     previewImage: "",
-    imageFile: null
+    imageFile: null,
     // message: ""
+    isLoading: null
   };
 
   handleFile = file => {
@@ -20,9 +21,16 @@ class UploadPage extends Component {
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     console.log(e);
     e.preventDefault();
+    this.setState({
+      isLoading:true,
+      previewImage:null
+    },()=>this.handleUpload())
+  };
+  
+  handleUpload=()=>{
     // create envelope
     let formData = new FormData();
     formData.append("image", this.state.imageFile);
@@ -41,22 +49,27 @@ class UploadPage extends Component {
         console.log(result);
         if (result.data.success) {
           this.setState({
-            previewImage: null, 
+            // previewImage: null,
             imageFile: null,
+            isLoading: false,
             message: "Your image upload is a success!"
-          })
+          });
         }
       })
       .catch(error => {
         console.log(error.response);
       });
-  };
-
+  }
+  
   render() {
     return (
       <>
-        <h1>Upload Images On This Page</h1>
-        <PreviewImage previewImage={this.state.previewImage} message={this.state.message}/>
+        {/* <h1>Upload Images On This Page</h1> */}
+        <PreviewImage
+          previewImage={this.state.previewImage}
+          message={this.state.message}
+          isLoading={this.state.isLoading}
+        />
         <UploadForm
           handleFile={this.handleFile}
           handleSubmit={this.handleSubmit}

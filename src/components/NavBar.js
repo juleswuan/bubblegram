@@ -62,33 +62,22 @@ export default class NavBar extends React.Component {
               {/* <Button style={buttonStyle}>Submit</Button> */}
             </Form>
             <NavItem>
-              <NavLink tag={Link} to="/users/1">
-                Users
-              </NavLink>
-            </NavItem>
-            <NavItem>
               <NavLink tag={Link} to="/profile">
                 My Profile
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                tag={Link}
-                to={{ pathname: "/login", state: { isLogin: true } }}
-              >
-                {" "}
-                Login{" "}
+              <NavLink tag={Link} to="/upload">
+                Upload
               </NavLink>
             </NavItem>
             <NavItem>
-              {/* <NavLink tag={Link} to={{ pathname: "/login", state: { isLogin: false } }}>
+              <NavLink
+                tag={Link}
+                to={{ pathname: "/login", state: { showLogin: true } }}
+              >
                 {" "}
-                Sign Up{" "}
-              </NavLink> */}
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/upload">
-                Upload
+                Login{" "}
               </NavLink>
             </NavItem>
           </Nav>
