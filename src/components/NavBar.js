@@ -7,8 +7,6 @@ import {
   Nav,
   NavLink,
   NavItem,
-  Input,
-  Button,
   Form,
   FormGroup
 } from "reactstrap";

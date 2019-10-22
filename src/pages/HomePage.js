@@ -1,6 +1,8 @@
 import React from "react";
-import LoadingIndicator from "../components/LoadingIndicator";
 import { Container, Row, Col, CardTitle, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+
+import LoadingIndicator from "../components/LoadingIndicator";
 import UserImages from "../containers/UserImages";
 
 const buttonStyle = {
@@ -42,11 +44,14 @@ const HomePage = props => {
                   className="rounded-circle"
                   style={imgStyle}
                 />{" "}
-                <a href={`/users/${user.id}`}>
-                  <Button style={buttonStyle} className="w-100">
-                    See More
-                  </Button>
-                </a>
+                <Button
+                  tag={Link}
+                  to={`/users/${user.id}`}
+                  style={buttonStyle}
+                  className="w-100"
+                >
+                  See More
+                </Button>
               </Col>
               <Col>
                 <UserImages userId={user.id} />
