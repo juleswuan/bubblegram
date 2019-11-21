@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
   withRouter
 } from "react-router-dom";
 
@@ -16,7 +15,7 @@ import UserProfile from "./pages/UserProfile";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LoginPage";
 import MyProfilePage from "./pages/MyProfilePage";
-import UploadPage from "./pages/UploadPage"
+import UploadPage from "./pages/UploadPage";
 
 class App extends React.Component {
   state = {
@@ -37,8 +36,9 @@ class App extends React.Component {
       });
     }
     axios
-      .get("https://insta.nextacademy.com/api/v1/users")
+      .get("http://localhost:5000/api/v1/users")
       .then(result => {
+        console.log(result);
         this.setState({
           isLoading: false,
           users: result.data

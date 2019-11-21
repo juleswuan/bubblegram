@@ -17,10 +17,10 @@ class UserProfile extends Component {
   componentDidMount = () => {
     axios
       .get(
-        `https://insta.nextacademy.com/api/v1/images?userId=${this.props.match.params.userId}`
+        `https://localhost:5000/api/v1/images?userId=${this.props.match.params.userId}`
       )
       .then(result => {
-        console.log(result)
+        console.log(result);
         this.setState({
           images: result.data
         });
@@ -56,7 +56,13 @@ class UserProfile extends Component {
         />
         <div>
           {this.state.images.map((image, index) => (
-            <img key={index} src={image} width="300" height="200" alt="userImages" />
+            <img
+              key={index}
+              src={image}
+              width="300"
+              height="200"
+              alt="userImages"
+            />
           ))}
         </div>
       </div>
